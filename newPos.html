@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> POS </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="functions.js"></script>
+		<link rel="stylesheet" href="newPosStyle.css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"> POS </a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li> <a> <span id="demo"> </span> </a> </li>
+					<li><a><span class="glyphicon glyphicon-user"></span> ADMIN </a></li>
+					<li><a id="glyphicon-folder-close"><span class="glyphicon glyphicon-folder-close"> </span> </a></li>
+				</ul>
+				
+			</div>
+			<nav class="nav navbar-pills nav-stacked">
+				<div class="nav navbar-nav navbar-right" id="navertical">
+					<ul>
+						<li style="margin-right: 50px; margin-top: 10px">
+							<input type="text"  placeholder="Filter kategorie">
+						</li>
+						
+					</ul>
+				</div>
+			</nav>
+		</nav>
+		
+		<div id="left">
+			<div id="c">
+				<select id="klient" style="width: 80%; height: 8%">
+					<option selected> Klient Rastesor </option>
+					
+				</select>
+				<button type="button"  class="btn btn-info " style=" margin-left: 0" data-toggle="modal" data-target="#shto">
+				<span class="glyphicon glyphicon-plus" >
+				</span> </button>
+				<input type="text"  placeholder="Kontrollo produktin sipas kodit,emrit ose skanimit te barkodit" style="width: 100%">
+				<div>
+					<div class="container-fluid">
+						
+						<div class="row">
+							<div class="col-sm-4" style="background-color:lavender;"> Produkti </div>
+							<div class="col-sm-2" style="background-color:lavenderblush;"> Cmimi</div>
+							<div class="col-sm-2" style="background-color:lavender;"> Sasia </div>
+							<div class="col-sm-3" style="background-color:lavenderblush;"> Nentotali </div>
+							<div class="col-sm-1" style="background-color:lavender;"> <span class="glyphicon glyphicon-trash" >
+							</span> </div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+			<div class="row" id="f7">
+				<div class="col-sm-6" style="background-color:lavender;"> Total Artikuj
+				</div>
+				<div class="col-sm-6" style="background-color:lavender;"> Totali
+				</div> <br>
+				<a data-toggle="modal" data-target="#zbritje">
+					<div class="col-sm-6" style="background-color:lavender;">Zbritje
+					</a>
+				</div>
+				<a data-toggle="modal" data-target="#kopertura">
+					<div class="col-sm-6" style="background-color:lavender;">Kopertura
+					</a>
+				</div>
+				<div class="col-sm-12" style="background-color:#F5F5CE;">Pagesa totale
+				</div>
+			</div>
+			<div id="d" class="container">
+				<div class="btn-group-vertical"  >
+					<button type="button" class="btn btn-warning" style="width:100px; height: 50px;">Ruaj Fature
+					</button>
+					<button type="button" class="btn btn-danger" style="width:100px; height: 50px;">Anullo
+					</button>
+				</div>
+				<div class="btn-group">
+					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#pagesa" style="height:100px; width:250px;">   Pagesa
+					</button>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div id="right">
+			<button type="button" id="kartedhurate" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+			<span class="glyphicon glyphicon-gift" style="color:white">
+			</span>
+			Shit Karte Dhurate	</button>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">
+						Shit Karte Dhurate
+						</h4>
+					</div>
+					<div class="modal-body">
+						<p> Ju lutem, plotesoni informacionin e meposhtem: </p>
+						
+						Nr.Karte* <br>
+						<input type="text" size="71%" id="nrKarte" placeholder="7812 2567 3410 2891" required>
+						<button onclick="random()"><span class="glyphicon glyphicon-random" style="color:blue;" ></span> </button>
+						<br> <br>
+						Vlera* <br>
+						<input type="text" size="76%"  name="vlera" required > <br> <br>
+						Cmimi* <br>
+						<input type="text" name="cmimi" size="76%" required> <br> <br>
+						Data e skadences <br>
+						<input type="date" size="76%"> <br> <br>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="cancel4" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary" > Shit Karte Dhurate </button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- Pagesa -->
+		<div class="modal fade" id="pagesa" role="dialog" >
+				<div class="modal-dialog">
+					<div class="modal-content" style="background-color:#6CD47B">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Pagesa</h4>
+						</div>
+						<div class="modal-body" style="height:300px">
+							<div id="inpute" style="float: left;">
+								<input type="text" placeholder="Total artikuj:"> <input type="text" placeholder="Totali:"> <br> <input type="text" placeholder="Totali paguar:"> <input type="text" placeholder="Kusuri:"> <br>
+								Shenime: <br>
+								<textarea name="shenime" cols="45" rows="4"> </textarea> <br>
+								Vlera: <span style="margin-left:140px;">   Duke paguar me: </span>  <br>
+								<input type="text">
+								<select name="type" style="width:100px; height:25px">
+									<option > Kesh </option>
+									<option> Tjeter </option>
+								</select>
+								<br>
+								Shenime pagese: <br>
+								<textarea cols="45" rows="2"> </textarea>
+							</div>
+							<div class="btn-group-vertical" style="width:200px; float: right;">
+								<button type="button" class="btn btn-primary">0</button>
+								<button type="button" class="btn btn-warning" onclick="count()">100 <span class="badge" id="clicks"> 0</span>  </button>
+								<button type="button" class="btn btn-warning" onclick="count1()">200 <span class="badge" id="clicks1"> 0</span></button>
+								<button type="button" class="btn btn-warning" onclick="count2()">500 <span class="badge" id="clicks2"> 0</span></button>
+								<button type="button" class="btn btn-warning" onclick="count3()">1000 <span class="badge" id="clicks3"> 0</span> </button>
+								<button type="button" class="btn btn-warning" onclick="count4()">2000 <span class="badge" id="clicks4"> 0</span> </button>
+								<button type="button" class="btn btn-warning" onclick="count5()">5000 <span class="badge" id="clicks5"> 0</span></button>
+								<input type="reset" class="btn btn-danger" value="Reset">
+								
+							</div>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" id="cancel" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary" data-dismiss="modal"> Ruaj </buton>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Shto klient -->
+			<div class="modal fade" id="shto" role="dialog">
+				<div class="modal-dialog">
+					
+					
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">
+							Shto klient
+							</h4>
+						</div>
+						<div class="modal-body">
+							
+							
+							Emri <br>
+							<input type="text" size="76%" id="emri"  required>
+							
+							<br> <br>
+							Adrese e-maili <span style="margin-left:200px;">   Telefoni </span> <br>
+							<input type="text" size="30%"  name="vlera" required >
+							&nbsp &nbsp
+							<input type="text" style="right:80;" name="cmimi" size="30%" required> <br> <br>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" id="cancel3" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary" id="shtoKlient" data-dismiss="modal" > Shto klient  </button>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<!-- Modali Zbritja -->
+			<div class="modal fade" id="zbritje" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Zbritje (5 ose 5%) </h4>
+						</div>
+						<div class="modal-body">
+							<input type="text"> <br>
+							<input type="radio" name="apliko" > Apliko ne totalin e fatures <br>
+							<input type="radio" name="apliko" checked> Apliko ne te gjithe artikujt e fatures <br>
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" id="cancel2" data-dismiss="modal">Close</button>
+							<button type="submit"class="btn btn-primary" data-dismiss="modal"> Apliko </buton>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Modali Kopertura -->
+			<div class="modal fade" id="kopertura" role="dialog">
+				<div class="modal-dialog modal-sm">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Kopertura (5 ose 5%) </h4>
+						</div>
+						<div class="modal-body">
+							<input type="text" placeholder="5%"> <br>
+							
+							
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" id="cancel1" data-dismiss="modal">Close</button>
+							<button type="submit"class="btn btn-primary" data-dismiss="modal"> Apliko </buton>
+						</div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>
