@@ -1,1 +1,1 @@
-# pos
+# pos (Point of Sale)
